@@ -2,7 +2,7 @@
 require_once __DIR__ . '../../app/incomes.php';
 
 $incomesTable = new Imcomes();
-$incomes = $incomesTable->findAll();
+$incomes = $incomesTable->fetchAll();
 
 echo '<pre>';
 var_dump($incomes);

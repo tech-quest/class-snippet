@@ -16,7 +16,7 @@ class Imcomes
         $this->pdo = $pdo;
     }
 
-    public function findAll()
+    public function fetchAll()
     {
         $sql = 'SELECT * FROM incomes';
         $statement = $this->pdo->prepare($sql);
