@@ -21,7 +21,17 @@ class Imcomes
         $sql = 'SELECT * FROM incomes';
         $statement = $this->pdo->prepare($sql);
         $statement->execute();
-        $incomes = $statement->fetchAll(PDO::FETCH_ASSOC);
-        return $incomes;
+        $incomesTable = $statement->fetchAll(PDO::FETCH_ASSOC);
+        return $incomesTable;
+    }
+
+    public function findTotalAmounts()
+    {
+        $incomesTable = $this->fetchAll();
+        $totalAmounts = 0;
+        foreach ($incomesTable as $income) {
+            $totalAmounts += $income['amount'];
+        }
+        return $totalAmounts;
     }
 }
